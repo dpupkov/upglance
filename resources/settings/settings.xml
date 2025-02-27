@@ -1,8 +1,0 @@
-<settings>
-    <setting propertyKey="@Properties.apiToken" title="@Strings.ApiTokenTitle">
-        <settingConfig type="alphaNumeric" required="true" />
-    </setting>
-    <setting propertyKey="@Properties.accountName" title="@Strings.AccountNameTitle">
-        <settingConfig type="alphaNumeric" required="false" />
-    </setting>
-</settings>
