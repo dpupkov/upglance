@@ -21,9 +21,7 @@ class upglanceView extends WatchUi.View {
         setLayout(Rez.Layouts.MainLayout(dc));
     }
 
-    // Called when this View is brought to the foreground. Restore
-    // the state of this View and prepare it to be shown. This includes
-    // loading resources into memory.
+    // Called when this View is brought to the foreground
     function onShow() as Void {
         if (!Settings.hasRequiredSettings()) {
             _statusText = WatchUi.loadResource(Rez.Strings.NoSettingsText);
@@ -46,79 +44,57 @@ class upglanceView extends WatchUi.View {
         balanceLabel.setText(_balance);
     }
 
-    // Called when this View is removed from the screen. Save the
-    // state of this View here. This includes freeing resources from
-    // memory.
     function onHide() as Void {
+        // Nothing to do here
     }
 
-    // Update the view with account data
+    // Simplified function with hardcoded AUD currency
     function updateAccountData(data, responseCode) as Void {
         _isLoading = false;
 
+        // Handle error cases
         if (responseCode != 200 || data == null) {
-            _statusText = WatchUi.loadResource(Rez.Strings.ErrorLoadingText);
+            _statusText = "Error";
             _accountName = "";
             _balance = "";
             WatchUi.requestUpdate();
             return;
         }
 
-        var accounts = data.get("data");
+        // Get the preferred account name
         var preferredAccountName = Settings.getSelectedAccountName();
-        var currencySymbol = WatchUi.loadResource(Rez.Strings.Currency);
-
-        // If no account name is preferred or not found, show total balance
         if (preferredAccountName == null || preferredAccountName.length() == 0) {
-            var totalBalance = 0.0;
-            
-            for (var i = 0; i < accounts.size(); i++) {
-                var account = accounts[i];
-                var attributes = account.get("attributes");
-                if (attributes != null) {
+            _statusText = "Set account name";
+            _accountName = "";
+            _balance = "";
+            WatchUi.requestUpdate();
+            return;
+        }
+
+        // Find the requested account
+        var accounts = data.get("data");
+        for (var i = 0; i < accounts.size(); i++) {
+            var account = accounts[i];
+            var attributes = account.get("attributes");
+            if (attributes != null) {
+                var displayName = attributes.get("displayName");
+                if (displayName != null && displayName.equals(preferredAccountName)) {
                     var balance = attributes.get("balance");
                     if (balance != null) {
-                        totalBalance += balance.get("value").toFloat();
-                    }
-                }
-            }
-            
-            _accountName = WatchUi.loadResource(Rez.Strings.AllAccountsBalance);
-            _balance = currencySymbol + totalBalance.format("%.2f");
-        } else {
-            // Find the preferred account
-            for (var i = 0; i < accounts.size(); i++) {
-                var account = accounts[i];
-                var attributes = account.get("attributes");
-                if (attributes != null) {
-                    var displayName = attributes.get("displayName");
-                    if (displayName != null && displayName.equals(preferredAccountName)) {
-                        var balance = attributes.get("balance");
-                        if (balance != null) {
-                            var value = balance.get("value");
-                            _accountName = displayName;
-                            _balance = currencySymbol + value;
-                            break;
-                        }
-                    }
-                }
-            }
-            
-            // If preferred account not found, show first account
-            if (_accountName.equals("")) {
-                var firstAccount = accounts[0];
-                var attributes = firstAccount.get("attributes");
-                if (attributes != null) {
-                    var displayName = attributes.get("displayName");
-                    var balance = attributes.get("balance");
-                    if (displayName != null && balance != null) {
                         var value = balance.get("value");
                         _accountName = displayName;
-                        _balance = currencySymbol + value;
+                        _balance = "A$" + value; // Hardcoded AUD currency symbol
+                        WatchUi.requestUpdate();
+                        return;
                     }
                 }
             }
         }
+
+        // Account not found
+        _statusText = "Account not found";
+        _accountName = "";
+        _balance = "";
         
         WatchUi.requestUpdate();
     }
