@@ -1,0 +1,4 @@
+<properties>
+    <property id="apiToken" type="string"></property>
+    <property id="accountName" type="string"></property>
+</properties>
