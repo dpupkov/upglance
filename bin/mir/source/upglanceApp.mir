@@ -1,0 +1,191 @@
+[ @file = "/home/dpupkov/devs/upglance/source/upglanceApp.mc"; @line = 1; @symbol_importdef<0> = [Toybox,1,7,13]; @symbol_importdef<1> = [Application,1,14,25]; ]
+import Toybox.Application;
+[ @file = "/home/dpupkov/devs/upglance/source/upglanceApp.mc"; @line = 2; @symbol_importdef<0> = [Toybox,2,7,13]; @symbol_importdef<1> = [Lang,2,14,18]; ]
+import Toybox.Lang;
+[ @file = "/home/dpupkov/devs/upglance/source/upglanceApp.mc"; @line = 3; @symbol_importdef<0> = [Toybox,3,7,13]; @symbol_importdef<1> = [WatchUi,3,14,21]; ]
+import Toybox.WatchUi;
+[ @file = "/home/dpupkov/devs/upglance/source/upglanceApp.mc"; @line = 4; @symbol_importdef<0> = [Toybox,4,7,13]; @symbol_importdef<1> = [Timer,4,14,19]; ]
+import Toybox.Timer;
+[ @file = "/home/dpupkov/devs/upglance/source/upglanceApp.mc"; @line = 6; @symbol_classdef = [upglanceApp,6,6,17]; @symbol_extends<0> = [Application,6,26,37]; @symbol_extends<1> = [AppBase,6,38,45]; ]
+class upglanceApp extends Application.AppBase {
+    [ @file = "/home/dpupkov/devs/upglance/source/upglanceApp.mc"; @line = 6; ]
+    <init> {
+    }
+    [ @file = "/home/dpupkov/devs/upglance/source/upglanceApp.mc"; @line = 6; ]
+    static
+    <init> {
+    }
+    [ @file = "/home/dpupkov/devs/upglance/source/upglanceApp.mc"; @line = 7; @position = 16; @symbol_vardef = [_view,7,16,21]; ]
+    private
+    var _view;
+    [ @file = "/home/dpupkov/devs/upglance/source/upglanceApp.mc"; @line = 8; @position = 16; @symbol_vardef = [_timer,8,16,22]; ]
+    private
+    var _timer;
+    [ @file = "/home/dpupkov/devs/upglance/source/upglanceApp.mc"; @line = 10; @symbol_functiondef = [initialize,10,13,23]; ]
+    function initialize() as Void {
+_home_dpupkov_devs_upglance_source_upglanceApp_mc_10_26_12_4_start:
+[ "/home/dpupkov/devs/upglance/source/upglanceApp.mc" 11 8 ]
+        symbol [ AppBase %tmp.2 11 8 15 ];
+        %tmp.2 = getv ? :AppBase;
+        symbol [ initialize %tmp.3 11 16 26 ];
+        %tmp.3 = getv function %tmp.2 :initialize;
+        invoke %tmp.2 %tmp.3();
+_home_dpupkov_devs_upglance_source_upglanceApp_mc_10_26_12_4_stop:
+    }
+    [ @file = "/home/dpupkov/devs/upglance/source/upglanceApp.mc"; @line = 15; @symbol_functiondef = [onStart,15,13,20]; @symbol_param<0> = [state,15,21,26]; ]
+    function onStart(state) as Void {
+_home_dpupkov_devs_upglance_source_upglanceApp_mc_15_36_17_4_start:
+[ "/home/dpupkov/devs/upglance/source/upglanceApp.mc" 16 8 ]
+        symbol [ Timer %tmp.3 16 21 26 ];
+        %tmp.3 = getm $.Toybox.Timer;
+        symbol [ Timer %tmp.4 16 27 32 ];
+        %tmp.4 = getv function ? %tmp.3 :Timer;
+        %tmp.1 = newc %tmp.4 ();
+        symbol [ _timer ? 16 8 14 ];
+        putv self :_timer %tmp.1;
+_home_dpupkov_devs_upglance_source_upglanceApp_mc_15_36_17_4_stop:
+    }
+    [ @file = "/home/dpupkov/devs/upglance/source/upglanceApp.mc"; @line = 20; @symbol_functiondef = [onStop,20,13,19]; @symbol_param<0> = [state,20,20,25]; ]
+    function onStop(state) as Void {
+_home_dpupkov_devs_upglance_source_upglanceApp_mc_20_35_24_4_start:
+[ "/home/dpupkov/devs/upglance/source/upglanceApp.mc" 21 8 ]
+_home_dpupkov_devs_upglance_source_upglanceApp_mc_21_8_23_8_if_stmt:
+        symbol [ _timer %tmp.2 21 12 18 ];
+        %tmp.2 = getv ? :_timer;
+        %tmp.3 = null;
+        %tmp.4 = ne %tmp.2 %tmp.3;
+        bf %tmp.4 @_home_dpupkov_devs_upglance_source_upglanceApp_mc_21_8_23_8_if_end;
+_home_dpupkov_devs_upglance_source_upglanceApp_mc_21_8_23_8_if_true:
+_home_dpupkov_devs_upglance_source_upglanceApp_mc_21_28_23_8_start:
+[ "/home/dpupkov/devs/upglance/source/upglanceApp.mc" 22 12 ]
+        symbol [ _timer %tmp.6 22 12 18 ];
+        %tmp.6 = getv ? :_timer;
+        %tmp.7 = as %tmp.6 { (!Null) };
+        symbol [ stop %tmp.8 22 19 23 ];
+        %tmp.8 = getv function %tmp.7 :stop;
+        invoke %tmp.7 %tmp.8();
+_home_dpupkov_devs_upglance_source_upglanceApp_mc_21_28_23_8_stop:
+        goto @_home_dpupkov_devs_upglance_source_upglanceApp_mc_21_8_23_8_if_end;
+_home_dpupkov_devs_upglance_source_upglanceApp_mc_21_8_23_8_if_end:
+_home_dpupkov_devs_upglance_source_upglanceApp_mc_20_35_24_4_stop:
+    }
+    [ @file = "/home/dpupkov/devs/upglance/source/upglanceApp.mc"; @line = 27; @symbol_functiondef = [getInitialView,27,13,27]; ]
+    function getInitialView() {
+_home_dpupkov_devs_upglance_source_upglanceApp_mc_27_30_31_4_start:
+[ "/home/dpupkov/devs/upglance/source/upglanceApp.mc" 28 8 ]
+        symbol [ upglanceView %tmp.4 28 20 32 ];
+        %tmp.4 = getv ? :upglanceView;
+        %tmp.1 = newc %tmp.4 ();
+        symbol [ _view ? 28 8 13 ];
+        putv self :_view %tmp.1;
+[ "/home/dpupkov/devs/upglance/source/upglanceApp.mc" 29 8 ]
+        %tmp.5 = self;
+        symbol [ fetchAccountData %tmp.6 29 8 24 ];
+        %tmp.6 = getv function %tmp.5 :fetchAccountData;
+        invoke %tmp.5 %tmp.6();
+[ "/home/dpupkov/devs/upglance/source/upglanceApp.mc" 30 8 ]
+        %tmp.7 = newa 1;
+        symbol [ _view %tmp.9 30 16 21 ];
+        %tmp.9 = getv ? :_view;
+        %tmp.10 = dup %tmp.7;
+        %tmp.11 = aputv %tmp.10 0 %tmp.9;
+        ret %tmp.11;
+_home_dpupkov_devs_upglance_source_upglanceApp_mc_27_30_31_4_stop:
+    }
+    [ @file = "/home/dpupkov/devs/upglance/source/upglanceApp.mc"; @line = 34; @symbol_functiondef = [fetchAccountData,34,13,29]; ]
+    function fetchAccountData() as Void {
+_home_dpupkov_devs_upglance_source_upglanceApp_mc_34_40_40_4_start:
+[ "/home/dpupkov/devs/upglance/source/upglanceApp.mc" 35 8 ]
+_home_dpupkov_devs_upglance_source_upglanceApp_mc_35_8_39_8_if_stmt:
+        symbol [ Settings %tmp.2 35 12 20 ];
+        %tmp.2 = getv ? :Settings;
+        symbol [ hasRequiredSettings %tmp.3 35 21 40 ];
+        %tmp.3 = getv function %tmp.2 :hasRequiredSettings;
+        %tmp.4 = invoke %tmp.2 %tmp.3();
+        bf %tmp.4 @_home_dpupkov_devs_upglance_source_upglanceApp_mc_35_8_39_8_if_end;
+_home_dpupkov_devs_upglance_source_upglanceApp_mc_35_8_39_8_if_true:
+_home_dpupkov_devs_upglance_source_upglanceApp_mc_35_44_39_8_start:
+[ "/home/dpupkov/devs/upglance/source/upglanceApp.mc" 36 12 ]
+        [ "_home_dpupkov_devs_upglance_source_upglanceApp_mc_35_44_39_8_start" "_home_dpupkov_devs_upglance_source_upglanceApp_mc_35_44_39_8_stop" ]
+        %apiToken.1 = local;
+        symbol [ apiToken %apiToken.1 36 16 24 ];
+        symbol [ Settings %tmp.6 36 27 35 ];
+        %tmp.6 = getv ? :Settings;
+        symbol [ getApiToken %tmp.7 36 36 47 ];
+        %tmp.7 = getv function %tmp.6 :getApiToken;
+        %tmp.8 = invoke %tmp.6 %tmp.7();
+        lputv %apiToken.1 %tmp.8;
+        symbol [ apiToken %apiToken.1 36 16 24 ];
+[ "/home/dpupkov/devs/upglance/source/upglanceApp.mc" 37 12 ]
+        [ "_home_dpupkov_devs_upglance_source_upglanceApp_mc_35_44_39_8_start" "_home_dpupkov_devs_upglance_source_upglanceApp_mc_35_44_39_8_stop" ]
+        %api.2 = local;
+        symbol [ api %api.2 37 16 19 ];
+        symbol [ UpBankApi %tmp.12 37 26 35 ];
+        %tmp.12 = getv ? :UpBankApi;
+        %tmp.13 = lgetv %apiToken.1;
+        symbol [ apiToken %tmp.13 37 36 44 ];
+        %tmp.14 = self;
+        symbol [ method %tmp.15 37 46 52 ];
+        %tmp.15 = getv function %tmp.14 :method;
+        %tmp.17 = const :onReceiveData;
+        %tmp.18 = invoke %tmp.14 %tmp.15(%tmp.17);
+        %tmp.9 = newc %tmp.12 (%tmp.13, %tmp.18);
+        lputv %api.2 %tmp.9;
+        symbol [ api %api.2 37 16 19 ];
+[ "/home/dpupkov/devs/upglance/source/upglanceApp.mc" 38 12 ]
+        %tmp.19 = lgetv %api.2;
+        symbol [ api %tmp.19 38 12 15 ];
+        symbol [ fetchAccounts %tmp.20 38 16 29 ];
+        %tmp.20 = getv function %tmp.19 :fetchAccounts;
+        invoke %tmp.19 %tmp.20();
+_home_dpupkov_devs_upglance_source_upglanceApp_mc_35_44_39_8_stop:
+        goto @_home_dpupkov_devs_upglance_source_upglanceApp_mc_35_8_39_8_if_end;
+_home_dpupkov_devs_upglance_source_upglanceApp_mc_35_8_39_8_if_end:
+_home_dpupkov_devs_upglance_source_upglanceApp_mc_34_40_40_4_stop:
+    }
+    [ @file = "/home/dpupkov/devs/upglance/source/upglanceApp.mc"; @line = 43; @symbol_functiondef = [onReceiveData,43,13,26]; @symbol_param<0> = [data,43,27,31]; @symbol_param<0>_type<0> = [Dictionary,43,35,45]; @symbol_param<0>_type<1> = [String,43,49,55]; @symbol_param<1> = [responseCode,43,65,77]; @symbol_param<1>_type<0> = [Number,43,81,87]; ]
+    function onReceiveData(data as Dictionary or String or Null, responseCode as Number) as Void {
+_home_dpupkov_devs_upglance_source_upglanceApp_mc_43_97_48_4_start:
+[ "/home/dpupkov/devs/upglance/source/upglanceApp.mc" 44 8 ]
+        symbol [ _view %tmp.2 44 8 13 ];
+        %tmp.2 = getv ? :_view;
+        symbol [ updateAccountData %tmp.3 44 14 31 ];
+        %tmp.3 = getv function %tmp.2 :updateAccountData;
+        %tmp.4 = lgetv %data;
+        symbol [ data %tmp.4 44 32 36 ];
+        %tmp.5 = lgetv %responseCode;
+        symbol [ responseCode %tmp.5 44 38 50 ];
+        invoke %tmp.2 %tmp.3(%tmp.4, %tmp.5);
+[ "/home/dpupkov/devs/upglance/source/upglanceApp.mc" 47 8 ]
+        symbol [ _timer %tmp.7 47 8 14 ];
+        %tmp.7 = getv ? :_timer;
+        symbol [ start %tmp.8 47 15 20 ];
+        %tmp.8 = getv function %tmp.7 :start;
+        %tmp.9 = self;
+        symbol [ method %tmp.10 47 21 27 ];
+        %tmp.10 = getv function %tmp.9 :method;
+        %tmp.12 = const :fetchAccountData;
+        %tmp.13 = invoke %tmp.9 %tmp.10(%tmp.12);
+        %tmp.14 = 300000;
+        %tmp.15 = false;
+        invoke %tmp.7 %tmp.8(%tmp.13, %tmp.14, %tmp.15);
+_home_dpupkov_devs_upglance_source_upglanceApp_mc_43_97_48_4_stop:
+    }
+}
+[ @file = "/home/dpupkov/devs/upglance/source/upglanceApp.mc"; @line = 51; @symbol_functiondef = [getApp,51,9,15]; @symbol_return<0> = [upglanceApp,51,21,32]; ]
+function getApp() as upglanceApp {
+_home_dpupkov_devs_upglance_source_upglanceApp_mc_51_33_53_0_start:
+[ "/home/dpupkov/devs/upglance/source/upglanceApp.mc" 52 4 ]
+    symbol [ Application %tmp.1 52 11 22 ];
+    %tmp.1 = getm $.Toybox.Application;
+    symbol [ getApp %tmp.2 52 23 29 ];
+    %tmp.2 = getv function %tmp.1 :getApp;
+    %tmp.3 = invoke %tmp.1 %tmp.2();
+    %tmp.4 = as %tmp.3 upglanceApp;
+    symbol [ upglanceApp %tmp.4 52 35 46 ];
+    ret %tmp.4;
+_home_dpupkov_devs_upglance_source_upglanceApp_mc_51_33_53_0_stop:
+}
+[ @file = "/home/dpupkov/devs/upglance/source/upglanceApp.mc"; @line = 1; ]
+<init> {
+}

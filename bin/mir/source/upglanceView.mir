@@ -1,0 +1,780 @@
+[ @file = "/home/dpupkov/devs/upglance/source/upglanceView.mc"; @line = 1; @symbol_importdef<0> = [Toybox,1,7,13]; @symbol_importdef<1> = [Graphics,1,14,22]; ]
+import Toybox.Graphics;
+[ @file = "/home/dpupkov/devs/upglance/source/upglanceView.mc"; @line = 2; @symbol_importdef<0> = [Toybox,2,7,13]; @symbol_importdef<1> = [WatchUi,2,14,21]; ]
+import Toybox.WatchUi;
+[ @file = "/home/dpupkov/devs/upglance/source/upglanceView.mc"; @line = 3; @symbol_importdef<0> = [Toybox,3,7,13]; @symbol_importdef<1> = [Lang,3,14,18]; ]
+import Toybox.Lang;
+[ @file = "/home/dpupkov/devs/upglance/source/upglanceView.mc"; @line = 5; @symbol_classdef = [upglanceView,5,6,18]; @symbol_extends<0> = [WatchUi,5,27,34]; @symbol_extends<1> = [View,5,35,39]; ]
+class upglanceView extends WatchUi.View {
+    [ @file = "/home/dpupkov/devs/upglance/source/upglanceView.mc"; @line = 5; ]
+    <init> {
+    }
+    [ @file = "/home/dpupkov/devs/upglance/source/upglanceView.mc"; @line = 5; ]
+    static
+    <init> {
+    }
+    [ @file = "/home/dpupkov/devs/upglance/source/upglanceView.mc"; @line = 6; @position = 16; @symbol_vardef = [_statusText,6,16,27]; ]
+    private
+    var _statusText;
+    [ @file = "/home/dpupkov/devs/upglance/source/upglanceView.mc"; @line = 7; @position = 16; @symbol_vardef = [_accountName,7,16,28]; ]
+    private
+    var _accountName;
+    [ @file = "/home/dpupkov/devs/upglance/source/upglanceView.mc"; @line = 8; @position = 16; @symbol_vardef = [_balance,8,16,24]; ]
+    private
+    var _balance;
+    [ @file = "/home/dpupkov/devs/upglance/source/upglanceView.mc"; @line = 9; @position = 16; @symbol_vardef = [_isLoading,9,16,26]; ]
+    private
+    var _isLoading;
+    [ @file = "/home/dpupkov/devs/upglance/source/upglanceView.mc"; @line = 11; @symbol_functiondef = [initialize,11,13,23]; ]
+    function initialize() as Void {
+_home_dpupkov_devs_upglance_source_upglanceView_mc_11_26_17_4_start:
+[ "/home/dpupkov/devs/upglance/source/upglanceView.mc" 12 8 ]
+        symbol [ View %tmp.2 12 8 12 ];
+        %tmp.2 = getv ? :View;
+        symbol [ initialize %tmp.3 12 13 23 ];
+        %tmp.3 = getv function %tmp.2 :initialize;
+        invoke %tmp.2 %tmp.3();
+[ "/home/dpupkov/devs/upglance/source/upglanceView.mc" 13 8 ]
+        symbol [ WatchUi %tmp.4 13 22 29 ];
+        %tmp.4 = getm $.Toybox.WatchUi;
+        symbol [ loadResource %tmp.5 13 30 42 ];
+        %tmp.5 = getv function %tmp.4 :loadResource;
+        symbol [ Rez %tmp.7 13 43 46 ];
+        %tmp.7 = getv ? :Rez;
+        symbol [ Strings %tmp.8 13 47 54 ];
+        %tmp.8 = getv %tmp.7 :Strings;
+        symbol [ LoadingText %tmp.9 13 55 66 ];
+        %tmp.9 = getv %tmp.8 :LoadingText;
+        %tmp.10 = invoke %tmp.4 %tmp.5(%tmp.9);
+        symbol [ _statusText ? 13 8 19 ];
+        putv self :_statusText %tmp.10;
+[ "/home/dpupkov/devs/upglance/source/upglanceView.mc" 14 8 ]
+        %tmp.11 = "";
+        symbol [ _accountName ? 14 8 20 ];
+        putv self :_accountName %tmp.11;
+[ "/home/dpupkov/devs/upglance/source/upglanceView.mc" 15 8 ]
+        %tmp.12 = "";
+        symbol [ _balance ? 15 8 16 ];
+        putv self :_balance %tmp.12;
+[ "/home/dpupkov/devs/upglance/source/upglanceView.mc" 16 8 ]
+        %tmp.13 = true;
+        symbol [ _isLoading ? 16 8 18 ];
+        putv self :_isLoading %tmp.13;
+_home_dpupkov_devs_upglance_source_upglanceView_mc_11_26_17_4_stop:
+    }
+    [ @file = "/home/dpupkov/devs/upglance/source/upglanceView.mc"; @line = 20; @symbol_functiondef = [onLayout,20,13,21]; @symbol_param<0> = [dc,20,22,24]; @symbol_param<0>_type<0> = [Dc,20,28,30]; ]
+    function onLayout(dc as Dc) as Void {
+_home_dpupkov_devs_upglance_source_upglanceView_mc_20_40_22_4_start:
+[ "/home/dpupkov/devs/upglance/source/upglanceView.mc" 21 8 ]
+        %tmp.1 = self;
+        symbol [ setLayout %tmp.2 21 8 17 ];
+        %tmp.2 = getv function %tmp.1 :setLayout;
+        symbol [ Rez %tmp.4 21 18 21 ];
+        %tmp.4 = getv ? :Rez;
+        symbol [ Layouts %tmp.5 21 22 29 ];
+        %tmp.5 = getv %tmp.4 :Layouts;
+        symbol [ MainLayout %tmp.6 21 30 40 ];
+        %tmp.6 = getv function %tmp.5 :MainLayout;
+        %tmp.7 = lgetv %dc;
+        symbol [ dc %tmp.7 21 41 43 ];
+        %tmp.8 = invoke %tmp.5 %tmp.6(%tmp.7);
+        invoke %tmp.1 %tmp.2(%tmp.8);
+_home_dpupkov_devs_upglance_source_upglanceView_mc_20_40_22_4_stop:
+    }
+    [ @file = "/home/dpupkov/devs/upglance/source/upglanceView.mc"; @line = 27; @symbol_functiondef = [onShow,27,13,19]; ]
+    function onShow() as Void {
+_home_dpupkov_devs_upglance_source_upglanceView_mc_27_30_32_4_start:
+[ "/home/dpupkov/devs/upglance/source/upglanceView.mc" 28 8 ]
+_home_dpupkov_devs_upglance_source_upglanceView_mc_28_8_31_8_if_stmt:
+        symbol [ Settings %tmp.2 28 13 21 ];
+        %tmp.2 = getv ? :Settings;
+        symbol [ hasRequiredSettings %tmp.3 28 22 41 ];
+        %tmp.3 = getv function %tmp.2 :hasRequiredSettings;
+        %tmp.4 = invoke %tmp.2 %tmp.3();
+        %tmp.5 = not %tmp.4;
+        bf %tmp.5 @_home_dpupkov_devs_upglance_source_upglanceView_mc_28_8_31_8_if_end;
+_home_dpupkov_devs_upglance_source_upglanceView_mc_28_8_31_8_if_true:
+_home_dpupkov_devs_upglance_source_upglanceView_mc_28_45_31_8_start:
+[ "/home/dpupkov/devs/upglance/source/upglanceView.mc" 29 12 ]
+        symbol [ WatchUi %tmp.6 29 26 33 ];
+        %tmp.6 = getm $.Toybox.WatchUi;
+        symbol [ loadResource %tmp.7 29 34 46 ];
+        %tmp.7 = getv function %tmp.6 :loadResource;
+        symbol [ Rez %tmp.9 29 47 50 ];
+        %tmp.9 = getv ? :Rez;
+        symbol [ Strings %tmp.10 29 51 58 ];
+        %tmp.10 = getv %tmp.9 :Strings;
+        symbol [ NoSettingsText %tmp.11 29 59 73 ];
+        %tmp.11 = getv %tmp.10 :NoSettingsText;
+        %tmp.12 = invoke %tmp.6 %tmp.7(%tmp.11);
+        symbol [ _statusText ? 29 12 23 ];
+        putv self :_statusText %tmp.12;
+[ "/home/dpupkov/devs/upglance/source/upglanceView.mc" 30 12 ]
+        %tmp.13 = false;
+        symbol [ _isLoading ? 30 12 22 ];
+        putv self :_isLoading %tmp.13;
+_home_dpupkov_devs_upglance_source_upglanceView_mc_28_45_31_8_stop:
+        goto @_home_dpupkov_devs_upglance_source_upglanceView_mc_28_8_31_8_if_end;
+_home_dpupkov_devs_upglance_source_upglanceView_mc_28_8_31_8_if_end:
+_home_dpupkov_devs_upglance_source_upglanceView_mc_27_30_32_4_stop:
+    }
+    [ @file = "/home/dpupkov/devs/upglance/source/upglanceView.mc"; @line = 35; @symbol_functiondef = [onUpdate,35,13,21]; @symbol_param<0> = [dc,35,22,24]; @symbol_param<0>_type<0> = [Dc,35,28,30]; ]
+    function onUpdate(dc as Dc) as Void {
+_home_dpupkov_devs_upglance_source_upglanceView_mc_35_40_47_4_start:
+[ "/home/dpupkov/devs/upglance/source/upglanceView.mc" 37 8 ]
+        symbol [ View %tmp.2 37 8 12 ];
+        %tmp.2 = getv ? :View;
+        symbol [ onUpdate %tmp.3 37 13 21 ];
+        %tmp.3 = getv function %tmp.2 :onUpdate;
+        %tmp.4 = lgetv %dc;
+        symbol [ dc %tmp.4 37 22 24 ];
+        invoke %tmp.2 %tmp.3(%tmp.4);
+[ "/home/dpupkov/devs/upglance/source/upglanceView.mc" 40 8 ]
+        [ "_home_dpupkov_devs_upglance_source_upglanceView_mc_35_40_47_4_start" "_home_dpupkov_devs_upglance_source_upglanceView_mc_35_40_47_4_stop" ]
+        %statusLabel.1 = local;
+        symbol [ statusLabel %statusLabel.1 40 12 23 ];
+        symbol [ View %tmp.6 40 26 30 ];
+        %tmp.6 = getv ? :View;
+        symbol [ findDrawableById %tmp.7 40 31 47 ];
+        %tmp.7 = getv function %tmp.6 :findDrawableById;
+        %tmp.8 = "StatusLabel";
+        %tmp.9 = invoke %tmp.6 %tmp.7(%tmp.8);
+        %tmp.10 = as %tmp.9 WatchUi.Text;
+        symbol [ WatchUi %tmp.10 40 66 73 ];
+        symbol [ Text %tmp.10 40 74 78 ];
+        lputv %statusLabel.1 %tmp.10;
+        symbol [ statusLabel %statusLabel.1 40 12 23 ];
+[ "/home/dpupkov/devs/upglance/source/upglanceView.mc" 41 8 ]
+        [ "_home_dpupkov_devs_upglance_source_upglanceView_mc_35_40_47_4_start" "_home_dpupkov_devs_upglance_source_upglanceView_mc_35_40_47_4_stop" ]
+        %accountNameLabel.2 = local;
+        symbol [ accountNameLabel %accountNameLabel.2 41 12 28 ];
+        symbol [ View %tmp.12 41 31 35 ];
+        %tmp.12 = getv ? :View;
+        symbol [ findDrawableById %tmp.13 41 36 52 ];
+        %tmp.13 = getv function %tmp.12 :findDrawableById;
+        %tmp.14 = "AccountNameLabel";
+        %tmp.15 = invoke %tmp.12 %tmp.13(%tmp.14);
+        %tmp.16 = as %tmp.15 WatchUi.Text;
+        symbol [ WatchUi %tmp.16 41 76 83 ];
+        symbol [ Text %tmp.16 41 84 88 ];
+        lputv %accountNameLabel.2 %tmp.16;
+        symbol [ accountNameLabel %accountNameLabel.2 41 12 28 ];
+[ "/home/dpupkov/devs/upglance/source/upglanceView.mc" 42 8 ]
+        [ "_home_dpupkov_devs_upglance_source_upglanceView_mc_35_40_47_4_start" "_home_dpupkov_devs_upglance_source_upglanceView_mc_35_40_47_4_stop" ]
+        %balanceLabel.3 = local;
+        symbol [ balanceLabel %balanceLabel.3 42 12 24 ];
+        symbol [ View %tmp.18 42 27 31 ];
+        %tmp.18 = getv ? :View;
+        symbol [ findDrawableById %tmp.19 42 32 48 ];
+        %tmp.19 = getv function %tmp.18 :findDrawableById;
+        %tmp.20 = "BalanceLabel";
+        %tmp.21 = invoke %tmp.18 %tmp.19(%tmp.20);
+        %tmp.22 = as %tmp.21 WatchUi.Text;
+        symbol [ WatchUi %tmp.22 42 68 75 ];
+        symbol [ Text %tmp.22 42 76 80 ];
+        lputv %balanceLabel.3 %tmp.22;
+        symbol [ balanceLabel %balanceLabel.3 42 12 24 ];
+[ "/home/dpupkov/devs/upglance/source/upglanceView.mc" 44 8 ]
+        %tmp.23 = lgetv %statusLabel.1;
+        symbol [ statusLabel %tmp.23 44 8 19 ];
+        symbol [ setText %tmp.24 44 20 27 ];
+        %tmp.24 = getv function %tmp.23 :setText;
+_home_dpupkov_devs_upglance_source_upglanceView_mc_44_28_44_55_begin:
+        symbol [ _isLoading %tmp.26 44 28 38 ];
+        %tmp.26 = getv ? :_isLoading;
+        bf %tmp.26 @_home_dpupkov_devs_upglance_source_upglanceView_mc_44_28_44_55_false;
+_home_dpupkov_devs_upglance_source_upglanceView_mc_44_28_44_55_true:
+        symbol [ _statusText %tmp.28 44 41 52 ];
+        %tmp.28 = getv ? :_statusText;
+        push %tmp.28;
+        goto @_home_dpupkov_devs_upglance_source_upglanceView_mc_44_28_44_55_end;
+_home_dpupkov_devs_upglance_source_upglanceView_mc_44_28_44_55_false:
+        %tmp.29 = "";
+        push %tmp.29;
+_home_dpupkov_devs_upglance_source_upglanceView_mc_44_28_44_55_end:
+        %tmp.30 = phi [%tmp.26 @_home_dpupkov_devs_upglance_source_upglanceView_mc_44_28_44_55_begin] [%tmp.28 @_home_dpupkov_devs_upglance_source_upglanceView_mc_44_28_44_55_true] [%tmp.29 @_home_dpupkov_devs_upglance_source_upglanceView_mc_44_28_44_55_false] [%tmp.30 @_home_dpupkov_devs_upglance_source_upglanceView_mc_44_28_44_55_end];
+        invoke %tmp.23 %tmp.24(%tmp.30);
+[ "/home/dpupkov/devs/upglance/source/upglanceView.mc" 45 8 ]
+        %tmp.31 = lgetv %accountNameLabel.2;
+        symbol [ accountNameLabel %tmp.31 45 8 24 ];
+        symbol [ setText %tmp.32 45 25 32 ];
+        %tmp.32 = getv function %tmp.31 :setText;
+        symbol [ _accountName %tmp.34 45 33 45 ];
+        %tmp.34 = getv ? :_accountName;
+        invoke %tmp.31 %tmp.32(%tmp.34);
+[ "/home/dpupkov/devs/upglance/source/upglanceView.mc" 46 8 ]
+        %tmp.35 = lgetv %balanceLabel.3;
+        symbol [ balanceLabel %tmp.35 46 8 20 ];
+        symbol [ setText %tmp.36 46 21 28 ];
+        %tmp.36 = getv function %tmp.35 :setText;
+        symbol [ _balance %tmp.38 46 29 37 ];
+        %tmp.38 = getv ? :_balance;
+        invoke %tmp.35 %tmp.36(%tmp.38);
+_home_dpupkov_devs_upglance_source_upglanceView_mc_35_40_47_4_stop:
+    }
+    [ @file = "/home/dpupkov/devs/upglance/source/upglanceView.mc"; @line = 52; @symbol_functiondef = [onHide,52,13,19]; ]
+    function onHide() as Void {
+    }
+    [ @file = "/home/dpupkov/devs/upglance/source/upglanceView.mc"; @line = 56; @symbol_functiondef = [updateAccountData,56,13,30]; @symbol_param<0> = [data,56,31,35]; @symbol_param<1> = [responseCode,56,37,49]; ]
+    function updateAccountData(data, responseCode) as Void {
+_home_dpupkov_devs_upglance_source_upglanceView_mc_56_59_124_4_start:
+[ "/home/dpupkov/devs/upglance/source/upglanceView.mc" 57 8 ]
+        %tmp.1 = false;
+        symbol [ _isLoading ? 57 8 18 ];
+        putv self :_isLoading %tmp.1;
+[ "/home/dpupkov/devs/upglance/source/upglanceView.mc" 59 8 ]
+_home_dpupkov_devs_upglance_source_upglanceView_mc_59_8_65_8_if_stmt:
+_home_dpupkov_devs_upglance_source_upglanceView_mc_59_12_59_43_begin:
+        %tmp.2 = lgetv %responseCode;
+        symbol [ responseCode %tmp.2 59 12 24 ];
+        %tmp.3 = 200;
+        %tmp.4 = ne %tmp.2 %tmp.3;
+        bt %tmp.4 @_home_dpupkov_devs_upglance_source_upglanceView_mc_59_8_65_8_if_true;
+_home_dpupkov_devs_upglance_source_upglanceView_mc_59_35_59_43_false:
+        %tmp.5 = lgetv %data;
+        symbol [ data %tmp.5 59 35 39 ];
+        %tmp.6 = null;
+        %tmp.7 = eq %tmp.5 %tmp.6;
+        push %tmp.7;
+_home_dpupkov_devs_upglance_source_upglanceView_mc_59_35_59_43_end:
+        %tmp.8 = phi [%tmp.4 @_home_dpupkov_devs_upglance_source_upglanceView_mc_59_12_59_43_begin] [%tmp.7 @_home_dpupkov_devs_upglance_source_upglanceView_mc_59_35_59_43_false] [%tmp.8 @_home_dpupkov_devs_upglance_source_upglanceView_mc_59_35_59_43_end];
+        bf %tmp.8 @_home_dpupkov_devs_upglance_source_upglanceView_mc_59_8_65_8_if_end;
+_home_dpupkov_devs_upglance_source_upglanceView_mc_59_8_65_8_if_true:
+_home_dpupkov_devs_upglance_source_upglanceView_mc_59_49_65_8_start:
+[ "/home/dpupkov/devs/upglance/source/upglanceView.mc" 60 12 ]
+        symbol [ WatchUi %tmp.9 60 26 33 ];
+        %tmp.9 = getm $.Toybox.WatchUi;
+        symbol [ loadResource %tmp.10 60 34 46 ];
+        %tmp.10 = getv function %tmp.9 :loadResource;
+        symbol [ Rez %tmp.12 60 47 50 ];
+        %tmp.12 = getv ? :Rez;
+        symbol [ Strings %tmp.13 60 51 58 ];
+        %tmp.13 = getv %tmp.12 :Strings;
+        symbol [ ErrorLoadingText %tmp.14 60 59 75 ];
+        %tmp.14 = getv %tmp.13 :ErrorLoadingText;
+        %tmp.15 = invoke %tmp.9 %tmp.10(%tmp.14);
+        symbol [ _statusText ? 60 12 23 ];
+        putv self :_statusText %tmp.15;
+[ "/home/dpupkov/devs/upglance/source/upglanceView.mc" 61 12 ]
+        %tmp.16 = "";
+        symbol [ _accountName ? 61 12 24 ];
+        putv self :_accountName %tmp.16;
+[ "/home/dpupkov/devs/upglance/source/upglanceView.mc" 62 12 ]
+        %tmp.17 = "";
+        symbol [ _balance ? 62 12 20 ];
+        putv self :_balance %tmp.17;
+[ "/home/dpupkov/devs/upglance/source/upglanceView.mc" 63 12 ]
+        symbol [ WatchUi %tmp.18 63 12 19 ];
+        %tmp.18 = getm $.Toybox.WatchUi;
+        symbol [ requestUpdate %tmp.19 63 20 33 ];
+        %tmp.19 = getv function %tmp.18 :requestUpdate;
+        invoke %tmp.18 %tmp.19();
+[ "/home/dpupkov/devs/upglance/source/upglanceView.mc" 64 12 ]
+        ret ?;
+_home_dpupkov_devs_upglance_source_upglanceView_mc_59_49_65_8_stop:
+        goto @_home_dpupkov_devs_upglance_source_upglanceView_mc_59_8_65_8_if_end;
+_home_dpupkov_devs_upglance_source_upglanceView_mc_59_8_65_8_if_end:
+[ "/home/dpupkov/devs/upglance/source/upglanceView.mc" 67 8 ]
+        [ "_home_dpupkov_devs_upglance_source_upglanceView_mc_56_59_124_4_start" "_home_dpupkov_devs_upglance_source_upglanceView_mc_56_59_124_4_stop" ]
+        %accounts.1 = local;
+        symbol [ accounts %accounts.1 67 12 20 ];
+        %tmp.20 = lgetv %data;
+        symbol [ data %tmp.20 67 23 27 ];
+        symbol [ get %tmp.21 67 28 31 ];
+        %tmp.21 = getv function %tmp.20 :get;
+        %tmp.22 = "data";
+        %tmp.23 = invoke %tmp.20 %tmp.21(%tmp.22);
+        lputv %accounts.1 %tmp.23;
+        symbol [ accounts %accounts.1 67 12 20 ];
+[ "/home/dpupkov/devs/upglance/source/upglanceView.mc" 68 8 ]
+        [ "_home_dpupkov_devs_upglance_source_upglanceView_mc_56_59_124_4_start" "_home_dpupkov_devs_upglance_source_upglanceView_mc_56_59_124_4_stop" ]
+        %preferredAccountName.2 = local;
+        symbol [ preferredAccountName %preferredAccountName.2 68 12 32 ];
+        symbol [ Settings %tmp.25 68 35 43 ];
+        %tmp.25 = getv ? :Settings;
+        symbol [ getSelectedAccountName %tmp.26 68 44 66 ];
+        %tmp.26 = getv function %tmp.25 :getSelectedAccountName;
+        %tmp.27 = invoke %tmp.25 %tmp.26();
+        lputv %preferredAccountName.2 %tmp.27;
+        symbol [ preferredAccountName %preferredAccountName.2 68 12 32 ];
+[ "/home/dpupkov/devs/upglance/source/upglanceView.mc" 69 8 ]
+        [ "_home_dpupkov_devs_upglance_source_upglanceView_mc_56_59_124_4_start" "_home_dpupkov_devs_upglance_source_upglanceView_mc_56_59_124_4_stop" ]
+        %currencySymbol.3 = local;
+        symbol [ currencySymbol %currencySymbol.3 69 12 26 ];
+        symbol [ WatchUi %tmp.28 69 29 36 ];
+        %tmp.28 = getm $.Toybox.WatchUi;
+        symbol [ loadResource %tmp.29 69 37 49 ];
+        %tmp.29 = getv function %tmp.28 :loadResource;
+        symbol [ Rez %tmp.31 69 50 53 ];
+        %tmp.31 = getv ? :Rez;
+        symbol [ Strings %tmp.32 69 54 61 ];
+        %tmp.32 = getv %tmp.31 :Strings;
+        symbol [ Currency %tmp.33 69 62 70 ];
+        %tmp.33 = getv %tmp.32 :Currency;
+        %tmp.34 = invoke %tmp.28 %tmp.29(%tmp.33);
+        lputv %currencySymbol.3 %tmp.34;
+        symbol [ currencySymbol %currencySymbol.3 69 12 26 ];
+[ "/home/dpupkov/devs/upglance/source/upglanceView.mc" 72 8 ]
+_home_dpupkov_devs_upglance_source_upglanceView_mc_72_8_121_8_if_stmt:
+_home_dpupkov_devs_upglance_source_upglanceView_mc_72_12_72_77_begin:
+        %tmp.35 = lgetv %preferredAccountName.2;
+        symbol [ preferredAccountName %tmp.35 72 12 32 ];
+        %tmp.36 = null;
+        %tmp.37 = eq %tmp.35 %tmp.36;
+        bt %tmp.37 @_home_dpupkov_devs_upglance_source_upglanceView_mc_72_8_121_8_if_true;
+_home_dpupkov_devs_upglance_source_upglanceView_mc_72_44_72_77_false:
+        %tmp.38 = lgetv %preferredAccountName.2;
+        symbol [ preferredAccountName %tmp.38 72 44 64 ];
+        %tmp.39 = as %tmp.38 { (!Null) };
+        symbol [ length %tmp.40 72 65 71 ];
+        %tmp.40 = getv function %tmp.39 :length;
+        %tmp.41 = invoke %tmp.39 %tmp.40();
+        %tmp.42 = 0;
+        %tmp.43 = eq %tmp.41 %tmp.42;
+        push %tmp.43;
+_home_dpupkov_devs_upglance_source_upglanceView_mc_72_44_72_77_end:
+        %tmp.44 = phi [%tmp.37 @_home_dpupkov_devs_upglance_source_upglanceView_mc_72_12_72_77_begin] [%tmp.43 @_home_dpupkov_devs_upglance_source_upglanceView_mc_72_44_72_77_false] [%tmp.44 @_home_dpupkov_devs_upglance_source_upglanceView_mc_72_44_72_77_end];
+        bf %tmp.44 @_home_dpupkov_devs_upglance_source_upglanceView_mc_72_8_121_8_if_else_false;
+_home_dpupkov_devs_upglance_source_upglanceView_mc_72_8_121_8_if_true:
+_home_dpupkov_devs_upglance_source_upglanceView_mc_72_80_88_8_start:
+[ "/home/dpupkov/devs/upglance/source/upglanceView.mc" 73 12 ]
+        [ "_home_dpupkov_devs_upglance_source_upglanceView_mc_72_80_88_8_start" "_home_dpupkov_devs_upglance_source_upglanceView_mc_72_80_88_8_stop" ]
+        %totalBalance.4 = local;
+        symbol [ totalBalance %totalBalance.4 73 16 28 ];
+        %tmp.45 = 0.0;
+        lputv %totalBalance.4 %tmp.45;
+        symbol [ totalBalance %totalBalance.4 73 16 28 ];
+[ "/home/dpupkov/devs/upglance/source/upglanceView.mc" 75 12 ]
+        for @_home_dpupkov_devs_upglance_source_upglanceView_mc_75_12_84_12_for_test @_home_dpupkov_devs_upglance_source_upglanceView_mc_75_12_84_12_for_incr @_home_dpupkov_devs_upglance_source_upglanceView_mc_75_12_84_12_for_end;
+_home_dpupkov_devs_upglance_source_upglanceView_mc_75_12_84_12_for_init:
+        [ "_home_dpupkov_devs_upglance_source_upglanceView_mc_75_12_84_12_for_begin" "_home_dpupkov_devs_upglance_source_upglanceView_mc_75_12_84_12_for_end" ]
+        %i.5 = local;
+        symbol [ i %i.5 75 21 22 ];
+        %tmp.46 = 0;
+        lputv %i.5 %tmp.46;
+        symbol [ i %i.5 75 21 22 ];
+_home_dpupkov_devs_upglance_source_upglanceView_mc_75_12_84_12_for_test:
+        %tmp.47 = lgetv %i.5;
+        symbol [ i %tmp.47 75 28 29 ];
+        %tmp.48 = lgetv %accounts.1;
+        symbol [ accounts %tmp.48 75 32 40 ];
+        symbol [ size %tmp.49 75 41 45 ];
+        %tmp.49 = getv function %tmp.48 :size;
+        %tmp.50 = invoke %tmp.48 %tmp.49();
+        %tmp.51 = lt %tmp.47 %tmp.50;
+        bf %tmp.51 @_home_dpupkov_devs_upglance_source_upglanceView_mc_75_12_84_12_for_end;
+_home_dpupkov_devs_upglance_source_upglanceView_mc_75_12_84_12_for_begin:
+_home_dpupkov_devs_upglance_source_upglanceView_mc_75_54_84_12_start:
+[ "/home/dpupkov/devs/upglance/source/upglanceView.mc" 76 16 ]
+        [ "_home_dpupkov_devs_upglance_source_upglanceView_mc_75_54_84_12_start" "_home_dpupkov_devs_upglance_source_upglanceView_mc_75_54_84_12_stop" ]
+        %account.6 = local;
+        symbol [ account %account.6 76 20 27 ];
+        %tmp.52 = lgetv %accounts.1;
+        symbol [ accounts %tmp.52 76 30 38 ];
+        %tmp.53 = lgetv %i.5;
+        symbol [ i %tmp.53 76 39 40 ];
+        %tmp.54 = agetv %tmp.52 %tmp.53;
+        lputv %account.6 %tmp.54;
+        symbol [ account %account.6 76 20 27 ];
+[ "/home/dpupkov/devs/upglance/source/upglanceView.mc" 77 16 ]
+        [ "_home_dpupkov_devs_upglance_source_upglanceView_mc_75_54_84_12_start" "_home_dpupkov_devs_upglance_source_upglanceView_mc_75_54_84_12_stop" ]
+        %attributes.7 = local;
+        symbol [ attributes %attributes.7 77 20 30 ];
+        %tmp.55 = lgetv %account.6;
+        symbol [ account %tmp.55 77 33 40 ];
+        symbol [ get %tmp.56 77 41 44 ];
+        %tmp.56 = getv function %tmp.55 :get;
+        %tmp.57 = "attributes";
+        %tmp.58 = invoke %tmp.55 %tmp.56(%tmp.57);
+        lputv %attributes.7 %tmp.58;
+        symbol [ attributes %attributes.7 77 20 30 ];
+[ "/home/dpupkov/devs/upglance/source/upglanceView.mc" 78 16 ]
+_home_dpupkov_devs_upglance_source_upglanceView_mc_78_16_83_16_if_stmt:
+        %tmp.59 = lgetv %attributes.7;
+        symbol [ attributes %tmp.59 78 20 30 ];
+        %tmp.60 = null;
+        %tmp.61 = ne %tmp.59 %tmp.60;
+        bf %tmp.61 @_home_dpupkov_devs_upglance_source_upglanceView_mc_78_16_83_16_if_end;
+_home_dpupkov_devs_upglance_source_upglanceView_mc_78_16_83_16_if_true:
+_home_dpupkov_devs_upglance_source_upglanceView_mc_78_40_83_16_start:
+[ "/home/dpupkov/devs/upglance/source/upglanceView.mc" 79 20 ]
+        [ "_home_dpupkov_devs_upglance_source_upglanceView_mc_78_40_83_16_start" "_home_dpupkov_devs_upglance_source_upglanceView_mc_78_40_83_16_stop" ]
+        %balance.8 = local;
+        symbol [ balance %balance.8 79 24 31 ];
+        %tmp.62 = lgetv %attributes.7;
+        symbol [ attributes %tmp.62 79 34 44 ];
+        %tmp.63 = as %tmp.62 { (!Null) };
+        symbol [ get %tmp.64 79 45 48 ];
+        %tmp.64 = getv function %tmp.63 :get;
+        %tmp.65 = "balance";
+        %tmp.66 = invoke %tmp.63 %tmp.64(%tmp.65);
+        lputv %balance.8 %tmp.66;
+        symbol [ balance %balance.8 79 24 31 ];
+[ "/home/dpupkov/devs/upglance/source/upglanceView.mc" 80 20 ]
+_home_dpupkov_devs_upglance_source_upglanceView_mc_80_20_82_20_if_stmt:
+        %tmp.67 = lgetv %balance.8;
+        symbol [ balance %tmp.67 80 24 31 ];
+        %tmp.68 = null;
+        %tmp.69 = ne %tmp.67 %tmp.68;
+        bf %tmp.69 @_home_dpupkov_devs_upglance_source_upglanceView_mc_80_20_82_20_if_end;
+_home_dpupkov_devs_upglance_source_upglanceView_mc_80_20_82_20_if_true:
+_home_dpupkov_devs_upglance_source_upglanceView_mc_80_41_82_20_start:
+[ "/home/dpupkov/devs/upglance/source/upglanceView.mc" 81 24 ]
+        %tmp.70 = lgetv %totalBalance.4;
+        symbol [ totalBalance %tmp.70 81 24 36 ];
+        %tmp.71 = lgetv %balance.8;
+        symbol [ balance %tmp.71 81 40 47 ];
+        %tmp.72 = as %tmp.71 { (!Null) };
+        symbol [ get %tmp.73 81 48 51 ];
+        %tmp.73 = getv function %tmp.72 :get;
+        %tmp.74 = "value";
+        %tmp.75 = invoke %tmp.72 %tmp.73(%tmp.74);
+        symbol [ toFloat %tmp.76 81 61 68 ];
+        %tmp.76 = getv function %tmp.75 :toFloat;
+        %tmp.77 = invoke %tmp.75 %tmp.76();
+        %tmp.78 = add %tmp.70 %tmp.77;
+        lputv %totalBalance.4 %tmp.78;
+        symbol [ totalBalance %totalBalance.4 81 24 36 ];
+_home_dpupkov_devs_upglance_source_upglanceView_mc_80_41_82_20_stop:
+        goto @_home_dpupkov_devs_upglance_source_upglanceView_mc_80_20_82_20_if_end;
+_home_dpupkov_devs_upglance_source_upglanceView_mc_80_20_82_20_if_end:
+_home_dpupkov_devs_upglance_source_upglanceView_mc_78_40_83_16_stop:
+        goto @_home_dpupkov_devs_upglance_source_upglanceView_mc_78_16_83_16_if_end;
+_home_dpupkov_devs_upglance_source_upglanceView_mc_78_16_83_16_if_end:
+_home_dpupkov_devs_upglance_source_upglanceView_mc_75_54_84_12_stop:
+_home_dpupkov_devs_upglance_source_upglanceView_mc_75_12_84_12_for_incr:
+[ "/home/dpupkov/devs/upglance/source/upglanceView.mc" 75 ]
+        %tmp.81 = lgetv %i.5;
+        symbol [ i %tmp.81 75 49 50 ];
+        %tmp.82 = add %tmp.81 1;
+        lputv %i.5 %tmp.82;
+        symbol [ i %i.5 75 49 50 ];
+        goto @_home_dpupkov_devs_upglance_source_upglanceView_mc_75_12_84_12_for_test;
+_home_dpupkov_devs_upglance_source_upglanceView_mc_75_12_84_12_for_end:
+[ "/home/dpupkov/devs/upglance/source/upglanceView.mc" 86 12 ]
+        symbol [ WatchUi %tmp.83 86 27 34 ];
+        %tmp.83 = getm $.Toybox.WatchUi;
+        symbol [ loadResource %tmp.84 86 35 47 ];
+        %tmp.84 = getv function %tmp.83 :loadResource;
+        symbol [ Rez %tmp.86 86 48 51 ];
+        %tmp.86 = getv ? :Rez;
+        symbol [ Strings %tmp.87 86 52 59 ];
+        %tmp.87 = getv %tmp.86 :Strings;
+        symbol [ AllAccountsBalance %tmp.88 86 60 78 ];
+        %tmp.88 = getv %tmp.87 :AllAccountsBalance;
+        %tmp.89 = invoke %tmp.83 %tmp.84(%tmp.88);
+        symbol [ _accountName ? 86 12 24 ];
+        putv self :_accountName %tmp.89;
+[ "/home/dpupkov/devs/upglance/source/upglanceView.mc" 87 12 ]
+        %tmp.90 = lgetv %currencySymbol.3;
+        symbol [ currencySymbol %tmp.90 87 23 37 ];
+        %tmp.91 = lgetv %totalBalance.4;
+        symbol [ totalBalance %tmp.91 87 40 52 ];
+        symbol [ format %tmp.92 87 53 59 ];
+        %tmp.92 = getv function %tmp.91 :format;
+        %tmp.93 = "%.2f";
+        %tmp.94 = invoke %tmp.91 %tmp.92(%tmp.93);
+        %tmp.95 = add %tmp.90 %tmp.94;
+        symbol [ _balance ? 87 12 20 ];
+        putv self :_balance %tmp.95;
+_home_dpupkov_devs_upglance_source_upglanceView_mc_72_80_88_8_stop:
+        goto @_home_dpupkov_devs_upglance_source_upglanceView_mc_72_8_121_8_if_end;
+_home_dpupkov_devs_upglance_source_upglanceView_mc_72_8_121_8_if_else_false:
+_home_dpupkov_devs_upglance_source_upglanceView_mc_88_15_121_8_start:
+[ "/home/dpupkov/devs/upglance/source/upglanceView.mc" 90 12 ]
+        for @_home_dpupkov_devs_upglance_source_upglanceView_mc_90_12_105_12_for_test @_home_dpupkov_devs_upglance_source_upglanceView_mc_90_12_105_12_for_incr @_home_dpupkov_devs_upglance_source_upglanceView_mc_90_12_105_12_for_end;
+_home_dpupkov_devs_upglance_source_upglanceView_mc_90_12_105_12_for_init:
+        [ "_home_dpupkov_devs_upglance_source_upglanceView_mc_90_12_105_12_for_begin" "_home_dpupkov_devs_upglance_source_upglanceView_mc_90_12_105_12_for_end" ]
+        %i.9 = local;
+        symbol [ i %i.9 90 21 22 ];
+        %tmp.96 = 0;
+        lputv %i.9 %tmp.96;
+        symbol [ i %i.9 90 21 22 ];
+_home_dpupkov_devs_upglance_source_upglanceView_mc_90_12_105_12_for_test:
+        %tmp.97 = lgetv %i.9;
+        symbol [ i %tmp.97 90 28 29 ];
+        %tmp.98 = lgetv %accounts.1;
+        symbol [ accounts %tmp.98 90 32 40 ];
+        symbol [ size %tmp.99 90 41 45 ];
+        %tmp.99 = getv function %tmp.98 :size;
+        %tmp.100 = invoke %tmp.98 %tmp.99();
+        %tmp.101 = lt %tmp.97 %tmp.100;
+        bf %tmp.101 @_home_dpupkov_devs_upglance_source_upglanceView_mc_90_12_105_12_for_end;
+_home_dpupkov_devs_upglance_source_upglanceView_mc_90_12_105_12_for_begin:
+_home_dpupkov_devs_upglance_source_upglanceView_mc_90_54_105_12_start:
+[ "/home/dpupkov/devs/upglance/source/upglanceView.mc" 91 16 ]
+        [ "_home_dpupkov_devs_upglance_source_upglanceView_mc_90_54_105_12_start" "_home_dpupkov_devs_upglance_source_upglanceView_mc_90_54_105_12_stop" ]
+        %account.10 = local;
+        symbol [ account %account.10 91 20 27 ];
+        %tmp.102 = lgetv %accounts.1;
+        symbol [ accounts %tmp.102 91 30 38 ];
+        %tmp.103 = lgetv %i.9;
+        symbol [ i %tmp.103 91 39 40 ];
+        %tmp.104 = agetv %tmp.102 %tmp.103;
+        lputv %account.10 %tmp.104;
+        symbol [ account %account.10 91 20 27 ];
+[ "/home/dpupkov/devs/upglance/source/upglanceView.mc" 92 16 ]
+        [ "_home_dpupkov_devs_upglance_source_upglanceView_mc_90_54_105_12_start" "_home_dpupkov_devs_upglance_source_upglanceView_mc_90_54_105_12_stop" ]
+        %attributes.11 = local;
+        symbol [ attributes %attributes.11 92 20 30 ];
+        %tmp.105 = lgetv %account.10;
+        symbol [ account %tmp.105 92 33 40 ];
+        symbol [ get %tmp.106 92 41 44 ];
+        %tmp.106 = getv function %tmp.105 :get;
+        %tmp.107 = "attributes";
+        %tmp.108 = invoke %tmp.105 %tmp.106(%tmp.107);
+        lputv %attributes.11 %tmp.108;
+        symbol [ attributes %attributes.11 92 20 30 ];
+[ "/home/dpupkov/devs/upglance/source/upglanceView.mc" 93 16 ]
+_home_dpupkov_devs_upglance_source_upglanceView_mc_93_16_104_16_if_stmt:
+        %tmp.109 = lgetv %attributes.11;
+        symbol [ attributes %tmp.109 93 20 30 ];
+        %tmp.110 = null;
+        %tmp.111 = ne %tmp.109 %tmp.110;
+        bf %tmp.111 @_home_dpupkov_devs_upglance_source_upglanceView_mc_93_16_104_16_if_end;
+_home_dpupkov_devs_upglance_source_upglanceView_mc_93_16_104_16_if_true:
+_home_dpupkov_devs_upglance_source_upglanceView_mc_93_40_104_16_start:
+[ "/home/dpupkov/devs/upglance/source/upglanceView.mc" 94 20 ]
+        [ "_home_dpupkov_devs_upglance_source_upglanceView_mc_93_40_104_16_start" "_home_dpupkov_devs_upglance_source_upglanceView_mc_93_40_104_16_stop" ]
+        %displayName.12 = local;
+        symbol [ displayName %displayName.12 94 24 35 ];
+        %tmp.112 = lgetv %attributes.11;
+        symbol [ attributes %tmp.112 94 38 48 ];
+        %tmp.113 = as %tmp.112 { (!Null) };
+        symbol [ get %tmp.114 94 49 52 ];
+        %tmp.114 = getv function %tmp.113 :get;
+        %tmp.115 = "displayName";
+        %tmp.116 = invoke %tmp.113 %tmp.114(%tmp.115);
+        lputv %displayName.12 %tmp.116;
+        symbol [ displayName %displayName.12 94 24 35 ];
+[ "/home/dpupkov/devs/upglance/source/upglanceView.mc" 95 20 ]
+_home_dpupkov_devs_upglance_source_upglanceView_mc_95_20_103_20_if_stmt:
+_home_dpupkov_devs_upglance_source_upglanceView_mc_95_24_95_86_begin:
+        %tmp.117 = lgetv %displayName.12;
+        symbol [ displayName %tmp.117 95 24 35 ];
+        %tmp.118 = null;
+        %tmp.119 = ne %tmp.117 %tmp.118;
+        bf %tmp.119 @_home_dpupkov_devs_upglance_source_upglanceView_mc_95_20_103_20_if_end;
+_home_dpupkov_devs_upglance_source_upglanceView_mc_95_47_95_86_true:
+        %tmp.120 = lgetv %displayName.12;
+        symbol [ displayName %tmp.120 95 47 58 ];
+        %tmp.121 = as %tmp.120 { (!Null) };
+        symbol [ equals %tmp.122 95 59 65 ];
+        %tmp.122 = getv function %tmp.121 :equals;
+        %tmp.123 = lgetv %preferredAccountName.2;
+        symbol [ preferredAccountName %tmp.123 95 66 86 ];
+        %tmp.124 = as %tmp.123 { (!Null) };
+        %tmp.125 = invoke %tmp.121 %tmp.122(%tmp.124);
+        push %tmp.125;
+_home_dpupkov_devs_upglance_source_upglanceView_mc_95_47_95_86_end:
+        %tmp.126 = phi [%tmp.119 @_home_dpupkov_devs_upglance_source_upglanceView_mc_95_24_95_86_begin] [%tmp.125 @_home_dpupkov_devs_upglance_source_upglanceView_mc_95_47_95_86_true] [%tmp.126 @_home_dpupkov_devs_upglance_source_upglanceView_mc_95_47_95_86_end];
+        bf %tmp.126 @_home_dpupkov_devs_upglance_source_upglanceView_mc_95_20_103_20_if_end;
+_home_dpupkov_devs_upglance_source_upglanceView_mc_95_20_103_20_if_true:
+_home_dpupkov_devs_upglance_source_upglanceView_mc_95_89_103_20_start:
+[ "/home/dpupkov/devs/upglance/source/upglanceView.mc" 96 24 ]
+        [ "_home_dpupkov_devs_upglance_source_upglanceView_mc_95_89_103_20_start" "_home_dpupkov_devs_upglance_source_upglanceView_mc_95_89_103_20_stop" ]
+        %balance.13 = local;
+        symbol [ balance %balance.13 96 28 35 ];
+        %tmp.127 = lgetv %attributes.11;
+        symbol [ attributes %tmp.127 96 38 48 ];
+        %tmp.128 = as %tmp.127 { (!Null) };
+        symbol [ get %tmp.129 96 49 52 ];
+        %tmp.129 = getv function %tmp.128 :get;
+        %tmp.130 = "balance";
+        %tmp.131 = invoke %tmp.128 %tmp.129(%tmp.130);
+        lputv %balance.13 %tmp.131;
+        symbol [ balance %balance.13 96 28 35 ];
+[ "/home/dpupkov/devs/upglance/source/upglanceView.mc" 97 24 ]
+_home_dpupkov_devs_upglance_source_upglanceView_mc_97_24_102_24_if_stmt:
+        %tmp.132 = lgetv %balance.13;
+        symbol [ balance %tmp.132 97 28 35 ];
+        %tmp.133 = null;
+        %tmp.134 = ne %tmp.132 %tmp.133;
+        bf %tmp.134 @_home_dpupkov_devs_upglance_source_upglanceView_mc_97_24_102_24_if_end;
+_home_dpupkov_devs_upglance_source_upglanceView_mc_97_24_102_24_if_true:
+_home_dpupkov_devs_upglance_source_upglanceView_mc_97_45_102_24_start:
+[ "/home/dpupkov/devs/upglance/source/upglanceView.mc" 98 28 ]
+        [ "_home_dpupkov_devs_upglance_source_upglanceView_mc_97_45_102_24_start" "_home_dpupkov_devs_upglance_source_upglanceView_mc_97_45_102_24_stop" ]
+        %value.14 = local;
+        symbol [ value %value.14 98 32 37 ];
+        %tmp.135 = lgetv %balance.13;
+        symbol [ balance %tmp.135 98 40 47 ];
+        %tmp.136 = as %tmp.135 { (!Null) };
+        symbol [ get %tmp.137 98 48 51 ];
+        %tmp.137 = getv function %tmp.136 :get;
+        %tmp.138 = "value";
+        %tmp.139 = invoke %tmp.136 %tmp.137(%tmp.138);
+        lputv %value.14 %tmp.139;
+        symbol [ value %value.14 98 32 37 ];
+[ "/home/dpupkov/devs/upglance/source/upglanceView.mc" 99 28 ]
+        %tmp.140 = lgetv %displayName.12;
+        symbol [ displayName %tmp.140 99 43 54 ];
+        %tmp.141 = as %tmp.140 { (!Null) };
+        symbol [ _accountName ? 99 28 40 ];
+        putv self :_accountName %tmp.141;
+[ "/home/dpupkov/devs/upglance/source/upglanceView.mc" 100 28 ]
+        %tmp.142 = lgetv %currencySymbol.3;
+        symbol [ currencySymbol %tmp.142 100 39 53 ];
+        %tmp.143 = lgetv %value.14;
+        symbol [ value %tmp.143 100 56 61 ];
+        %tmp.144 = add %tmp.142 %tmp.143;
+        symbol [ _balance ? 100 28 36 ];
+        putv self :_balance %tmp.144;
+[ "/home/dpupkov/devs/upglance/source/upglanceView.mc" 101 28 ]
+        goto break @_home_dpupkov_devs_upglance_source_upglanceView_mc_90_12_105_12_for_end;
+_home_dpupkov_devs_upglance_source_upglanceView_mc_97_45_102_24_stop:
+        goto @_home_dpupkov_devs_upglance_source_upglanceView_mc_97_24_102_24_if_end;
+_home_dpupkov_devs_upglance_source_upglanceView_mc_97_24_102_24_if_end:
+_home_dpupkov_devs_upglance_source_upglanceView_mc_95_89_103_20_stop:
+        goto @_home_dpupkov_devs_upglance_source_upglanceView_mc_95_20_103_20_if_end;
+_home_dpupkov_devs_upglance_source_upglanceView_mc_95_20_103_20_if_end:
+_home_dpupkov_devs_upglance_source_upglanceView_mc_93_40_104_16_stop:
+        goto @_home_dpupkov_devs_upglance_source_upglanceView_mc_93_16_104_16_if_end;
+_home_dpupkov_devs_upglance_source_upglanceView_mc_93_16_104_16_if_end:
+_home_dpupkov_devs_upglance_source_upglanceView_mc_90_54_105_12_stop:
+_home_dpupkov_devs_upglance_source_upglanceView_mc_90_12_105_12_for_incr:
+[ "/home/dpupkov/devs/upglance/source/upglanceView.mc" 90 ]
+        %tmp.147 = lgetv %i.9;
+        symbol [ i %tmp.147 90 49 50 ];
+        %tmp.148 = add %tmp.147 1;
+        lputv %i.9 %tmp.148;
+        symbol [ i %i.9 90 49 50 ];
+        goto @_home_dpupkov_devs_upglance_source_upglanceView_mc_90_12_105_12_for_test;
+_home_dpupkov_devs_upglance_source_upglanceView_mc_90_12_105_12_for_end:
+[ "/home/dpupkov/devs/upglance/source/upglanceView.mc" 108 12 ]
+_home_dpupkov_devs_upglance_source_upglanceView_mc_108_12_120_12_if_stmt:
+        symbol [ _accountName %tmp.150 108 16 28 ];
+        %tmp.150 = getv ? :_accountName;
+        symbol [ equals %tmp.151 108 29 35 ];
+        %tmp.151 = getv function %tmp.150 :equals;
+        %tmp.152 = "";
+        %tmp.153 = invoke %tmp.150 %tmp.151(%tmp.152);
+        bf %tmp.153 @_home_dpupkov_devs_upglance_source_upglanceView_mc_108_12_120_12_if_end;
+_home_dpupkov_devs_upglance_source_upglanceView_mc_108_12_120_12_if_true:
+_home_dpupkov_devs_upglance_source_upglanceView_mc_108_41_120_12_start:
+[ "/home/dpupkov/devs/upglance/source/upglanceView.mc" 109 16 ]
+        [ "_home_dpupkov_devs_upglance_source_upglanceView_mc_108_41_120_12_start" "_home_dpupkov_devs_upglance_source_upglanceView_mc_108_41_120_12_stop" ]
+        %firstAccount.15 = local;
+        symbol [ firstAccount %firstAccount.15 109 20 32 ];
+        %tmp.154 = lgetv %accounts.1;
+        symbol [ accounts %tmp.154 109 35 43 ];
+        %tmp.155 = 0;
+        %tmp.156 = agetv %tmp.154 %tmp.155;
+        lputv %firstAccount.15 %tmp.156;
+        symbol [ firstAccount %firstAccount.15 109 20 32 ];
+[ "/home/dpupkov/devs/upglance/source/upglanceView.mc" 110 16 ]
+        [ "_home_dpupkov_devs_upglance_source_upglanceView_mc_108_41_120_12_start" "_home_dpupkov_devs_upglance_source_upglanceView_mc_108_41_120_12_stop" ]
+        %attributes.16 = local;
+        symbol [ attributes %attributes.16 110 20 30 ];
+        %tmp.157 = lgetv %firstAccount.15;
+        symbol [ firstAccount %tmp.157 110 33 45 ];
+        symbol [ get %tmp.158 110 46 49 ];
+        %tmp.158 = getv function %tmp.157 :get;
+        %tmp.159 = "attributes";
+        %tmp.160 = invoke %tmp.157 %tmp.158(%tmp.159);
+        lputv %attributes.16 %tmp.160;
+        symbol [ attributes %attributes.16 110 20 30 ];
+[ "/home/dpupkov/devs/upglance/source/upglanceView.mc" 111 16 ]
+_home_dpupkov_devs_upglance_source_upglanceView_mc_111_16_119_16_if_stmt:
+        %tmp.161 = lgetv %attributes.16;
+        symbol [ attributes %tmp.161 111 20 30 ];
+        %tmp.162 = null;
+        %tmp.163 = ne %tmp.161 %tmp.162;
+        bf %tmp.163 @_home_dpupkov_devs_upglance_source_upglanceView_mc_111_16_119_16_if_end;
+_home_dpupkov_devs_upglance_source_upglanceView_mc_111_16_119_16_if_true:
+_home_dpupkov_devs_upglance_source_upglanceView_mc_111_40_119_16_start:
+[ "/home/dpupkov/devs/upglance/source/upglanceView.mc" 112 20 ]
+        [ "_home_dpupkov_devs_upglance_source_upglanceView_mc_111_40_119_16_start" "_home_dpupkov_devs_upglance_source_upglanceView_mc_111_40_119_16_stop" ]
+        %displayName.17 = local;
+        symbol [ displayName %displayName.17 112 24 35 ];
+        %tmp.164 = lgetv %attributes.16;
+        symbol [ attributes %tmp.164 112 38 48 ];
+        %tmp.165 = as %tmp.164 { (!Null) };
+        symbol [ get %tmp.166 112 49 52 ];
+        %tmp.166 = getv function %tmp.165 :get;
+        %tmp.167 = "displayName";
+        %tmp.168 = invoke %tmp.165 %tmp.166(%tmp.167);
+        lputv %displayName.17 %tmp.168;
+        symbol [ displayName %displayName.17 112 24 35 ];
+[ "/home/dpupkov/devs/upglance/source/upglanceView.mc" 113 20 ]
+        [ "_home_dpupkov_devs_upglance_source_upglanceView_mc_111_40_119_16_start" "_home_dpupkov_devs_upglance_source_upglanceView_mc_111_40_119_16_stop" ]
+        %balance.18 = local;
+        symbol [ balance %balance.18 113 24 31 ];
+        %tmp.169 = lgetv %attributes.16;
+        symbol [ attributes %tmp.169 113 34 44 ];
+        %tmp.170 = as %tmp.169 { (!Null) };
+        symbol [ get %tmp.171 113 45 48 ];
+        %tmp.171 = getv function %tmp.170 :get;
+        %tmp.172 = "balance";
+        %tmp.173 = invoke %tmp.170 %tmp.171(%tmp.172);
+        lputv %balance.18 %tmp.173;
+        symbol [ balance %balance.18 113 24 31 ];
+[ "/home/dpupkov/devs/upglance/source/upglanceView.mc" 114 20 ]
+_home_dpupkov_devs_upglance_source_upglanceView_mc_114_20_118_20_if_stmt:
+_home_dpupkov_devs_upglance_source_upglanceView_mc_114_24_114_58_begin:
+        %tmp.174 = lgetv %displayName.17;
+        symbol [ displayName %tmp.174 114 24 35 ];
+        %tmp.175 = null;
+        %tmp.176 = ne %tmp.174 %tmp.175;
+        bf %tmp.176 @_home_dpupkov_devs_upglance_source_upglanceView_mc_114_20_118_20_if_end;
+_home_dpupkov_devs_upglance_source_upglanceView_mc_114_47_114_58_true:
+        %tmp.177 = lgetv %balance.18;
+        symbol [ balance %tmp.177 114 47 54 ];
+        %tmp.178 = null;
+        %tmp.179 = ne %tmp.177 %tmp.178;
+        push %tmp.179;
+_home_dpupkov_devs_upglance_source_upglanceView_mc_114_47_114_58_end:
+        %tmp.180 = phi [%tmp.176 @_home_dpupkov_devs_upglance_source_upglanceView_mc_114_24_114_58_begin] [%tmp.179 @_home_dpupkov_devs_upglance_source_upglanceView_mc_114_47_114_58_true] [%tmp.180 @_home_dpupkov_devs_upglance_source_upglanceView_mc_114_47_114_58_end];
+        bf %tmp.180 @_home_dpupkov_devs_upglance_source_upglanceView_mc_114_20_118_20_if_end;
+_home_dpupkov_devs_upglance_source_upglanceView_mc_114_20_118_20_if_true:
+_home_dpupkov_devs_upglance_source_upglanceView_mc_114_64_118_20_start:
+[ "/home/dpupkov/devs/upglance/source/upglanceView.mc" 115 24 ]
+        [ "_home_dpupkov_devs_upglance_source_upglanceView_mc_114_64_118_20_start" "_home_dpupkov_devs_upglance_source_upglanceView_mc_114_64_118_20_stop" ]
+        %value.19 = local;
+        symbol [ value %value.19 115 28 33 ];
+        %tmp.181 = lgetv %balance.18;
+        symbol [ balance %tmp.181 115 36 43 ];
+        %tmp.182 = as %tmp.181 { (!Null) };
+        symbol [ get %tmp.183 115 44 47 ];
+        %tmp.183 = getv function %tmp.182 :get;
+        %tmp.184 = "value";
+        %tmp.185 = invoke %tmp.182 %tmp.183(%tmp.184);
+        lputv %value.19 %tmp.185;
+        symbol [ value %value.19 115 28 33 ];
+[ "/home/dpupkov/devs/upglance/source/upglanceView.mc" 116 24 ]
+        %tmp.186 = lgetv %displayName.17;
+        symbol [ displayName %tmp.186 116 39 50 ];
+        %tmp.187 = as %tmp.186 { (!Null) };
+        symbol [ _accountName ? 116 24 36 ];
+        putv self :_accountName %tmp.187;
+[ "/home/dpupkov/devs/upglance/source/upglanceView.mc" 117 24 ]
+        %tmp.188 = lgetv %currencySymbol.3;
+        symbol [ currencySymbol %tmp.188 117 35 49 ];
+        %tmp.189 = lgetv %value.19;
+        symbol [ value %tmp.189 117 52 57 ];
+        %tmp.190 = add %tmp.188 %tmp.189;
+        symbol [ _balance ? 117 24 32 ];
+        putv self :_balance %tmp.190;
+_home_dpupkov_devs_upglance_source_upglanceView_mc_114_64_118_20_stop:
+        goto @_home_dpupkov_devs_upglance_source_upglanceView_mc_114_20_118_20_if_end;
+_home_dpupkov_devs_upglance_source_upglanceView_mc_114_20_118_20_if_end:
+_home_dpupkov_devs_upglance_source_upglanceView_mc_111_40_119_16_stop:
+        goto @_home_dpupkov_devs_upglance_source_upglanceView_mc_111_16_119_16_if_end;
+_home_dpupkov_devs_upglance_source_upglanceView_mc_111_16_119_16_if_end:
+_home_dpupkov_devs_upglance_source_upglanceView_mc_108_41_120_12_stop:
+        goto @_home_dpupkov_devs_upglance_source_upglanceView_mc_108_12_120_12_if_end;
+_home_dpupkov_devs_upglance_source_upglanceView_mc_108_12_120_12_if_end:
+_home_dpupkov_devs_upglance_source_upglanceView_mc_88_15_121_8_stop:
+_home_dpupkov_devs_upglance_source_upglanceView_mc_72_8_121_8_if_end:
+[ "/home/dpupkov/devs/upglance/source/upglanceView.mc" 123 8 ]
+        symbol [ WatchUi %tmp.191 123 8 15 ];
+        %tmp.191 = getm $.Toybox.WatchUi;
+        symbol [ requestUpdate %tmp.192 123 16 29 ];
+        %tmp.192 = getv function %tmp.191 :requestUpdate;
+        invoke %tmp.191 %tmp.192();
+_home_dpupkov_devs_upglance_source_upglanceView_mc_56_59_124_4_stop:
+    }
+}
+[ @file = "/home/dpupkov/devs/upglance/source/upglanceView.mc"; @line = 1; ]
+<init> {
+}

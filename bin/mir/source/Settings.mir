@@ -1,0 +1,83 @@
+[ @file = "/home/dpupkov/devs/upglance/source/Settings.mc"; @line = 1; @symbol_importdef<0> = [Toybox,1,7,13]; @symbol_importdef<1> = [Application,1,14,25]; @symbol_importdef<2> = [Properties,1,26,36]; ]
+import Toybox.Application.Properties;
+[ @file = "/home/dpupkov/devs/upglance/source/Settings.mc"; @line = 2; @symbol_importdef<0> = [Toybox,2,7,13]; @symbol_importdef<1> = [Lang,2,14,18]; ]
+import Toybox.Lang;
+[ @file = "/home/dpupkov/devs/upglance/source/Settings.mc"; @line = 4; @symbol_classdef = [Settings,4,6,14]; ]
+class Settings {
+    [ @file = "/home/dpupkov/devs/upglance/source/Settings.mc"; @line = 4; ]
+    <init> {
+    }
+    [ @file = "/home/dpupkov/devs/upglance/source/Settings.mc"; @line = 4; ]
+    static
+    <init> {
+    }
+    [ @file = "/home/dpupkov/devs/upglance/source/Settings.mc"; @line = 5; @symbol_functiondef = [getApiToken,5,20,31]; ]
+    static
+    function getApiToken() {
+_home_dpupkov_devs_upglance_source_Settings_mc_5_34_7_4_start:
+[ "/home/dpupkov/devs/upglance/source/Settings.mc" 6 8 ]
+        symbol [ Properties %tmp.1 6 15 25 ];
+        %tmp.1 = getm $.Toybox.Application.Properties;
+        symbol [ getValue %tmp.2 6 26 34 ];
+        %tmp.2 = getv function %tmp.1 :getValue;
+        %tmp.3 = "apiToken";
+        %tmp.4 = invoke %tmp.1 %tmp.2(%tmp.3);
+        ret %tmp.4;
+_home_dpupkov_devs_upglance_source_Settings_mc_5_34_7_4_stop:
+    }
+    [ @file = "/home/dpupkov/devs/upglance/source/Settings.mc"; @line = 9; @symbol_functiondef = [getSelectedAccountName,9,20,42]; ]
+    static
+    function getSelectedAccountName() {
+_home_dpupkov_devs_upglance_source_Settings_mc_9_45_11_4_start:
+[ "/home/dpupkov/devs/upglance/source/Settings.mc" 10 8 ]
+        symbol [ Properties %tmp.1 10 15 25 ];
+        %tmp.1 = getm $.Toybox.Application.Properties;
+        symbol [ getValue %tmp.2 10 26 34 ];
+        %tmp.2 = getv function %tmp.1 :getValue;
+        %tmp.3 = "accountName";
+        %tmp.4 = invoke %tmp.1 %tmp.2(%tmp.3);
+        ret %tmp.4;
+_home_dpupkov_devs_upglance_source_Settings_mc_9_45_11_4_stop:
+    }
+    [ @file = "/home/dpupkov/devs/upglance/source/Settings.mc"; @line = 13; @symbol_functiondef = [hasRequiredSettings,13,20,39]; @symbol_return<0> = [Boolean,13,45,52]; ]
+    static
+    function hasRequiredSettings() as Boolean {
+_home_dpupkov_devs_upglance_source_Settings_mc_13_53_16_4_start:
+[ "/home/dpupkov/devs/upglance/source/Settings.mc" 14 8 ]
+        [ "_home_dpupkov_devs_upglance_source_Settings_mc_13_53_16_4_start" "_home_dpupkov_devs_upglance_source_Settings_mc_13_53_16_4_stop" ]
+        %token.1 = local;
+        symbol [ token %token.1 14 12 17 ];
+        %tmp.1 = self;
+        symbol [ getApiToken %tmp.2 14 20 31 ];
+        %tmp.2 = getv function %tmp.1 :getApiToken;
+        %tmp.3 = invoke %tmp.1 %tmp.2();
+        lputv %token.1 %tmp.3;
+        symbol [ token %token.1 14 12 17 ];
+[ "/home/dpupkov/devs/upglance/source/Settings.mc" 15 8 ]
+_home_dpupkov_devs_upglance_source_Settings_mc_15_15_15_49_begin:
+        %tmp.4 = lgetv %token.1;
+        symbol [ token %tmp.4 15 15 20 ];
+        %tmp.5 = null;
+        %tmp.6 = ne %tmp.4 %tmp.5;
+        %tmp.7 = dup %tmp.6;
+        bf %tmp.7 @_home_dpupkov_devs_upglance_source_Settings_mc_15_32_15_49_end;
+_home_dpupkov_devs_upglance_source_Settings_mc_15_32_15_49_true:
+        %tmp.8 = lgetv %token.1;
+        symbol [ token %tmp.8 15 32 37 ];
+        %tmp.9 = as %tmp.8 { (!Null) };
+        symbol [ length %tmp.10 15 38 44 ];
+        %tmp.10 = getv function %tmp.9 :length;
+        %tmp.11 = invoke %tmp.9 %tmp.10();
+        %tmp.12 = 0;
+        %tmp.13 = gt %tmp.11 %tmp.12;
+        %tmp.14 = and %tmp.6 %tmp.13;
+        push %tmp.14;
+_home_dpupkov_devs_upglance_source_Settings_mc_15_32_15_49_end:
+        %tmp.15 = phi [%tmp.7 @_home_dpupkov_devs_upglance_source_Settings_mc_15_15_15_49_begin] [%tmp.14 @_home_dpupkov_devs_upglance_source_Settings_mc_15_32_15_49_true] [%tmp.15 @_home_dpupkov_devs_upglance_source_Settings_mc_15_32_15_49_end];
+        ret %tmp.15;
+_home_dpupkov_devs_upglance_source_Settings_mc_13_53_16_4_stop:
+    }
+}
+[ @file = "/home/dpupkov/devs/upglance/source/Settings.mc"; @line = 1; ]
+<init> {
+}
