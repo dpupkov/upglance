@@ -1,7 +1,7 @@
 # Up Bank Glance for Garmin
 
 A Garmin Connect IQ Glance application that displays your Up Bank account balances directly on your watch.
-fff
+
 ## Features
 
 - Shows your Up Bank account balances on your Garmin watch
